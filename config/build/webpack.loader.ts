@@ -3,6 +3,15 @@ import { RuleSetRule } from 'webpack';
 
 export const rules: RuleSetRule[] = [
   {
+    test: /\.(png|jpg|jpeg|gif|svg)$/,
+    use: [
+      {
+        loader: 'file-loader',
+
+      },
+    ],
+  },
+  {
     test: /\.s[ac]ss$/i,
     use: [
       MiniCssExtractPlugin.loader,

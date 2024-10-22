@@ -2,8 +2,8 @@ import * as path from 'path';
 import { Configuration } from 'webpack';
 
 export const resolve: Configuration['resolve'] = {
-  alias: {
-    '@components': path.resolve(__dirname, 'components/'),
-  },
+  // alias: {
+  //   '@images': path.resolve(__dirname, 'src/assets/images'),
+  // },
   extensions: ['.tsx', '.ts', '.js'],
 };

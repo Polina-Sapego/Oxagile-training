@@ -1,11 +1,12 @@
 import React from 'react';
-import './assests/styles/App.sass';
+import Settings from './components/Settings';
+import Navigation from "./components/Navigation";
 
 function App() {
   return (
     <div>
-      <h1 className="title">Hello, React with Webpack!</h1>
-      <button type="button">int</button>
+      <Navigation />
+      <Settings />
     </div>
   );
 }
