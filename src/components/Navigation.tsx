@@ -1,10 +1,11 @@
 import React from 'react';
-import '../../public/assets/styles/Navigation.sass';
+import Settings from '@images/settings.png';
+import '@styles/Navigation.sass';
 
 function Navigation() {
   return (
     <nav className="navigation">
-      <img src="./assets/images/settings.png" alt="settings button" className="navigation-setting" />
+      <img src={Settings} alt="settings button" className="navigation-setting" />
     </nav>
   );
 }

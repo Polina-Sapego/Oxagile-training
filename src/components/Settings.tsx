@@ -1,21 +1,30 @@
 import React from 'react';
 import Setting from './Setting';
-import '../../public/assets/styles/Settings.sass';
+import Navigation from './Navigation';
+import Login from '@images/login.png';
+import Support from '@images/support.png';
+import Useragreement from '@images/useragreement.png';
+import '@styles/Settings.sass';
 
 function Settings() {
-  const settings: Array<{ id: number, title: string, img: string }> = [{
+  const settings: Array<{ id: number, title: string, img: string, link?: string }> = [{
     id: 1,
     title: 'Вход',
-    img: './assets/images/login.png',
-  }, { id: 2, title: 'Поддержка', img: './assets/images/support.png' },
+    img: Login,
+    link: '/profile',
+  }, {
+    id: 2, title: 'Поддержка', img: Support, link: '/vvu',
+  },
   {
     id: 3,
     title: 'Пользовательское соглашение',
-    img: './assets/images/useragreement.png',
+    img: Useragreement,
+    link: '/provfjvid',
   }];
 
   return (
     <>
+      <Navigation />
       <h1 className="title-block">Settings</h1>
       <div className="settings">
         {settings.map((item) => (
