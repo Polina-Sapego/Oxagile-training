@@ -15,15 +15,15 @@ function UserProfile() {
         </div>
         <div className="change-color">
           <span>Color</span>
-          <button className="change" type={"button"}>Change</button>
+          <button className="change" type="button">Change</button>
         </div>
         <div className="change-pin">
           <span>PIN for profile</span>
-          <button className="change" type={"button"}>Change</button>
+          <button className="change" type="button">Change</button>
         </div>
       </div>
-      <div className="button-back">
-        <Link to="/"><button className="back" type={"button"}>Back</button></Link>
+      <div className="button-back-prf">
+        <Link to="/"><button className="back" type="button">Back</button></Link>
       </div>
 
     </>

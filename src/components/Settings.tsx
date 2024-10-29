@@ -19,7 +19,7 @@ function Settings() {
     id: 3,
     title: 'Пользовательское соглашение',
     img: Useragreement,
-    link: '/provfjvid',
+    link: '/useragreement',
   }];
 
   return (

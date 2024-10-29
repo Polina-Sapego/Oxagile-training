@@ -74,6 +74,9 @@ const config: Configuration = {
     },
     extensions: ['.tsx', '.ts', '.js'],
   },
+  devServer: {
+    historyApiFallback: true,
+  },
 };
 
 export default config;
