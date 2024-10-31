@@ -1,18 +1,19 @@
+@import "common"
+$gray: #A7AEB34D
+
 .settings-title
-  margin: 0
+  @extend .font-medium
   position: relative
-  color: #FFD919
-  font-size: 2.7vh
   top: 4vh
   text-align: center
 
 .profile
-  font-size: 5.7vh
+  @extend .font-large
   text-align: center
 
 .form
   position: relative
-  line-height: 14vh
+  line-height: 7.875rem
   width: 41vw
   height: 41vh
   margin: 0 auto
@@ -20,33 +21,30 @@
   .form-user
     display: flex
     justify-content: space-between
-    font-size: 3vh
+    font-size: 1.80rem
 
   .change-color
     display: flex
     justify-content: space-between
-    font-size: 3vh
+    font-size: 1.80rem
     align-items: center
-    border-top: 2px solid #00000000
-    border-bottom: 2px solid #00000000
+    border-top: 1px solid $gray
+    border-bottom: 1px solid $gray
 
   .change-pin
     display: flex
     justify-content: space-between
-    font-size: 3vh
+    font-size: 1.80rem
     align-items: center
 
   .change
     width: 48.5%
     padding: 20px 0
-    border: 4px solid #A7AEB34D
-    border-radius: 50px
-    background-color: #14171A
-    color: #A7AEB3
-    font-size: 2.8vh
     text-align: center
+    @extend .button-black
+    @extend .btn
 
-.button-back-prf
+.button-back-profile
   display: flex
   justify-content: center
   align-items: center
@@ -55,10 +53,8 @@
 .back
   width: 20vw
   padding: 20px 0
-  border-radius: 50px
-  background: #FFD919
-  color: #14171A
-  font-size: 2.8vh
+  @extend .button-back
+  @extend .btn
   text-align: center
 
   &:hover

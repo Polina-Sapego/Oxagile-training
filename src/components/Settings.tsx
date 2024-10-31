@@ -1,36 +1,44 @@
 import React from 'react';
-import Setting from './Setting';
-import Navigation from './Navigation';
-import Login from '@images/login.png';
+import { Outlet, useLocation } from 'react-router-dom';
+import Login from '@images/account_profile.png';
 import Support from '@images/support.png';
 import Useragreement from '@images/useragreement.png';
+import Setting, { ISettingItem } from './Setting';
 import '@styles/Settings.sass';
 
 function Settings() {
-  const settings: Array<{ id: number, title: string, img: string, link?: string }> = [{
+  const location = useLocation();
+  const isMainSettingsPage = location.pathname === '/settings';
+
+  const settings: Array< ISettingItem > = [{
     id: 1,
-    title: 'Вход',
+    title: 'Profile',
     img: Login,
-    link: '/profile',
-  }, {
-    id: 2, title: 'Поддержка', img: Support, link: '/vvu',
+    link: '/settings/profile',
+  },
+  {
+    id: 2, title: 'Поддержка', img: Support, link: '/settings/support',
   },
   {
     id: 3,
     title: 'Пользовательское соглашение',
     img: Useragreement,
-    link: '/useragreement',
+    link: '/settings/useragreement',
   }];
 
   return (
     <>
-      <Navigation />
-      <h1 className="title-block">Settings</h1>
-      <div className="settings">
-        {settings.map((item) => (
-          <Setting key={item.id} item={item} />
-        ))}
-      </div>
+      {isMainSettingsPage && (
+      <>
+        <h1 className="title-block">Settings</h1>
+        <div className="settings">
+          {settings.map((item) => (
+            <Setting key={item.id} item={item} />
+          ))}
+        </div>
+      </>
+      )}
+      <Outlet />
     </>
   );
 }

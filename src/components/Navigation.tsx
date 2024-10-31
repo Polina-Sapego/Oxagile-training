@@ -5,7 +5,7 @@ import '@styles/Navigation.sass';
 function Navigation() {
   return (
     <nav className="navigation">
-      <img src={Settings} alt="settings button" className="navigation-setting" />
+      <img className="navigation-setting" src={Settings} alt="settings button" />
     </nav>
   );
 }

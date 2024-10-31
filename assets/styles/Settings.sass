@@ -1,11 +1,14 @@
+@import "common"
+
 .title-block
   position: absolute
   top: 13%
   left: 15%
-  font-size: 6vh
+  @extend .font-large
 
 .settings
-  position: absolute
-  margin: calc(300/1850)*100% calc(190/1662)*100% calc(204/963)*100% calc(320/1679)*100%
   display: flex
+  justify-content: center
+  align-items: center
+  height: 100vh
   gap: 30px
