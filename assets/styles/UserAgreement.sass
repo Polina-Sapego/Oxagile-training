@@ -1,0 +1,69 @@
+@import "common"
+$gray: #A7AEB34D
+
+.kebab-case
+  margin: 0
+  position: relative
+  text-align: center
+  padding-top: 70px
+
+  .setting-agreement
+    @extend .font-medium
+
+  .user-agreement
+    position: relative
+    max-width: 600px
+    margin: 0 auto
+    line-height: 3.6rem
+    @extend .font-large
+
+  .user-agreement-beeline
+    font-size: 1.62rem
+    color: #A7AEB3
+
+  .content
+    display: flex
+    justify-content: center
+    align-items: center
+
+    .content-text
+      margin-right: 7px
+      max-width: 800px
+      max-height: 41vh
+      text-align: justify
+      padding: 20px
+      color: #A7AEB3
+      overflow-y: hidden
+
+    .scrollable
+      max-height: 41vh
+      overflow: scroll
+      @include custom-scrollbar(5px, $gray, 4px)
+
+    .text
+      display: inline
+      margin: 0
+      font-size: 1.62rem
+
+.buttons-panel
+  position: relative
+  display: flex
+  justify-content: center
+  gap: 3vw
+  transform: translateY(6vh)
+  margin-bottom: 20vh
+
+  .button-back-agreement
+    width: 39vh
+    height: 8vh
+    @extend .button-back
+    @extend .btn
+
+    &:hover
+      background: rgba(255, 212, 0, 0.83)
+
+  .view-all
+    width: 39vh
+    position: relative
+    @extend .button-black
+    @extend .btn
