@@ -22,6 +22,25 @@ $gray: #A7AEB34D
     display: flex
     justify-content: space-between
     font-size: 1.80rem
+    align-items: center
+
+    .button-change
+      @extend .button-back
+      width: 48.5%
+      text-align: center
+      padding: 20px 0
+
+      .btn
+        @extend .btn
+
+      .user-input
+        position: relative
+        width: 80%
+        background-color: #FFD919
+        font-size: 1.7rem
+        text-align: center
+        border: 1px solid #FFD919
+        outline: none
 
   .change-color
     display: flex
@@ -42,20 +61,52 @@ $gray: #A7AEB34D
     padding: 20px 0
     text-align: center
     @extend .button-black
-    @extend .btn
+
+    .btn
+      @extend .btn
+    .user-input
+      position: relative
+      width: 80%
+      color: white
+      background-color: $black
+      font-size: 1.7rem
+      text-align: center
+      border: 1px solid $black
+      outline: none
 
 .button-back-profile
   display: flex
+  flex-direction: column
   justify-content: center
   align-items: center
-  margin-top: 200px
+  margin-top: 110px
 
-.back
-  width: 20vw
-  padding: 20px 0
-  @extend .button-back
-  @extend .btn
-  text-align: center
+  .save
+    width: 19.5%
+    padding: 20px 0
+    text-align: center
+    @extend .button-black
+    .btn
+      @extend .btn
 
-  &:hover
-    background: rgba(255, 212, 0, 0.83)
+  .save-disabled
+    width: 19.5%
+    padding: 20px 0
+    text-align: center
+    @extend .button-disabled
+    .btn
+      @extend .btn
+
+  .back
+    width: 20vw
+    padding: 20px 0
+    @extend .button-back
+    text-align: center
+    margin-top: 10%
+
+    .btn
+      @extend .btn
+
+    &:hover
+      background: rgba(255, 212, 0, 0.83)
+
