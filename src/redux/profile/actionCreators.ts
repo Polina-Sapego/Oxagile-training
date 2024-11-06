@@ -1,17 +1,17 @@
-import ActionTypes from './actionTypes';
+import { ADD_PROFILE } from './actionTypes';
 
 export interface IProfile {
   name: string;
-  pin: number;
+  pin: string;
 }
 
 export interface AddProfileAction {
-  type: ActionTypes.ADD_PROFILE;
+  type: ADD_PROFILE;
   payload: IProfile;
 }
 
 const addProfile = (newProfile: IProfile): AddProfileAction => ({
-  type: ActionTypes.ADD_PROFILE,
+  type: ADD_PROFILE,
   payload: newProfile,
 });
 

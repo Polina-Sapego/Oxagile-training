@@ -1,7 +1,8 @@
-@import "common"
-$gray: #A7AEB34D
+@import "../../common"
+$gray: #A7AEB3
+$yellow: #FFD919
 
-.kebab-case
+.user-agreement-page
   margin: 0
   position: relative
   text-align: center
@@ -18,8 +19,8 @@ $gray: #A7AEB34D
     @extend .font-large
 
   .user-agreement-beeline
-    font-size: 1.62rem
-    color: #A7AEB3
+    font-size: 1.6rem
+    color: $gray
 
   .content
     display: flex
@@ -32,18 +33,18 @@ $gray: #A7AEB34D
       max-height: 41vh
       text-align: justify
       padding: 20px
-      color: #A7AEB3
-      overflow-y: hidden
+      color: $gray
+      overflow: hidden
 
     .scrollable
       max-height: 41vh
-      overflow: scroll
-      @include custom-scrollbar(5px, $gray, 4px)
+      overflow: auto
+      @include custom-scrollbar(5px, rgba($gray, 0.5), 4px)
 
     .text
       display: inline
       margin: 0
-      font-size: 1.62rem
+      font-size: 1.6rem
 
 .buttons-panel
   position: relative
@@ -56,18 +57,25 @@ $gray: #A7AEB34D
   .button-back-agreement
     width: 39vh
     height: 8vh
-    @extend .button-back
+    @extend .button-black
 
-    .btn
-      @extend .btn
+    &.btn
+      border-radius: 50px
+      font-size: 1.7rem
 
     &:hover
-      background: rgba(255, 212, 0, 0.83)
+      background: $yellow
+      color: black
 
   .view-all
     width: 39vh
     position: relative
     @extend .button-black
 
-  .btn
-      @extend .btn
+    &.btn
+      border-radius: 50px
+      font-size: 1.7rem
+
+    &:hover
+      background: $yellow
+      color: black

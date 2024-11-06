@@ -1,17 +1,17 @@
 import { Reducer } from 'react';
-import ActionTypes from './actionTypes';
+import { ADD_PROFILE } from './actionTypes';
 import { AddProfileAction, IProfile } from './actionCreators';
 
 const initialState: IProfile = {
   name: '',
-  pin: 0,
+  pin: '',
 };
 
 export type IAction = AddProfileAction;
 
 const ProfileReducer: Reducer<IProfile, IAction> = (state = initialState, action) => {
   switch (action.type) {
-    case ActionTypes.ADD_PROFILE:
+    case ADD_PROFILE:
       return { ...action.payload };
     default:
       return state;

@@ -1,6 +1,5 @@
 import React from 'react';
 import Settings from '@images/settings.png';
-import '@styles/Navigation.sass';
 
 function Navigation() {
   return (

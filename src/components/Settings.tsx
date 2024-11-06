@@ -4,7 +4,6 @@ import Login from '@images/account_profile.png';
 import Support from '@images/support.png';
 import Useragreement from '@images/useragreement.png';
 import Setting, { ISettingItem } from './Setting';
-import '@styles/Settings.sass';
 
 function Settings() {
   const location = useLocation();

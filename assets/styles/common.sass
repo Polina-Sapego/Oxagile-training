@@ -1,31 +1,35 @@
 $yellow: #FFD919
 $black: #14171A
-$gray: #A7AEB34D
+$gray: #A7AEB3
+
+body
+  margin: 0
+  background: linear-gradient(45deg, #242C33 30%, #14171A 70%, #0B0B0D 100%)
+  font-family: Roboto, sans-serif
+  color: #ffffff
+  min-height: 100vh
 
 .font-large
-  font-size: 3.360rem
+  font-size: 3.36rem
 
 .font-medium
   margin: 0
   color: $yellow
-  font-size: 1.62rem
+  font-size: 1.6rem
 
 .button-back
   background: $yellow
   color: $black
 
 .button-black
-  border: 4px solid $gray
+  border: 4px solid rgba($gray, 0.5)
   background-color: $black
   color: #A7AEB3
 
 .button-disabled
-  border: 4px solid $gray
-  background-color: $gray
+  border: 4px solid rgba($gray, 0.5)
+  background-color: rgba($gray, 0.5)
   color: #A7AEB3
-.btn
-  border-radius: 50px
-  font-size: 1.69rem
 
 @mixin custom-scrollbar($width, $background, $radius)
   &::-webkit-scrollbar
