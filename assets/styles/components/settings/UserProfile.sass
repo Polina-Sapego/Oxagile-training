@@ -36,6 +36,9 @@ $black: #14171A
       &:hover
         @extend .button-back
 
+      &:hover .user-input
+        color: $black
+
       &.btn
         border-radius: 50px
         font-size: 1.7rem
@@ -61,6 +64,9 @@ $black: #14171A
 
       &:focus
         color: $black
+
+      &:disabled
+        color: white
 
   .password
     display: flex
@@ -89,6 +95,9 @@ $black: #14171A
       &:focus-within
         background-color: $yellow
 
+      &:hover .pin-input
+        color: $black
+
     .pin-input
       width: 80%
       color: white
@@ -107,6 +116,9 @@ $black: #14171A
       &:focus
         color: $black
 
+      &:disabled
+        color: white
+
 .button-back-profile
   display: flex
   flex-direction: column
@@ -118,7 +130,7 @@ $black: #14171A
 
   .button-group
     display: flex
-    gap: 10px
+    gap: 20px
     width: 100%
     justify-content: center
     position: relative
@@ -156,6 +168,7 @@ $black: #14171A
       .save
         width: 19.5%
         padding: 20px 0
+        margin-left: 10px
         text-align: center
         @extend .button-black
 
@@ -169,6 +182,7 @@ $black: #14171A
       .save-disabled
          width: 19.5%
          padding: 20px 0
+         margin-left: 10px
          text-align: center
          @extend .button-disabled
 
