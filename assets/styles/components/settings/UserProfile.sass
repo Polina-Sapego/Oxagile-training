@@ -1,8 +1,9 @@
 @import "../../common"
-$black: #14171A
+$white: #fff
 
 .settings-title
   @extend .font-medium
+  color: $yellow
   position: relative
   top: 4vh
   text-align: center
@@ -49,7 +50,7 @@ $black: #14171A
     .user-input
       position: relative
       width: 80%
-      color: white
+      color: $white
       background-color: transparent
       font-size: 1.7rem
       text-align: center
@@ -59,14 +60,12 @@ $black: #14171A
       &:focus::placeholder
         color: transparent
 
-      &:hover
-        color: $black
-
+      &:hover,
       &:focus
         color: $black
 
       &:disabled
-        color: white
+        color: $white
 
   .password
     display: flex
@@ -100,7 +99,7 @@ $black: #14171A
 
     .pin-input
       width: 80%
-      color: white
+      color: $white
       background-color: transparent
       font-size: 1.7rem
       text-align: center
@@ -110,14 +109,12 @@ $black: #14171A
       &:focus::placeholder
         color: transparent
 
-      &:hover
-        color: $black
-
+      &:hover,
       &:focus
         color: $black
 
       &:disabled
-        color: white
+        color: $white
 
 .button-back-profile
   display: flex
@@ -142,21 +139,14 @@ $black: #14171A
 
       .toast-message
         display: block
-        height: 10px
-        color: green
-        transition: opacity 0.3s ease, top 0.3s ease
-
-      &.show-toast
-        .edit
-          margin-top: 8px
-          transition: margin-top 0.3s ease
+        color: #008300
+        transition: opacity 0.3s ease
 
       .edit
         width: 20.5%
         padding: 20px 0
         text-align: center
         @extend .button-black
-        transition: all 0.3s ease
 
         &.btn
           border-radius: 50px

@@ -37,7 +37,7 @@ function UserProfile() {
         name: name || 'Admin',
         pin,
       };
-      if (profile.name && profile.pin.toString().length === 4) {
+      if (profile.name && profile.pin.length === 4) {
         dispatch(addProfile(profile));
         setSuccessMessage('Profile saved successfully!');
         setTimeout(() => {
@@ -56,7 +56,7 @@ function UserProfile() {
 
   const buttonClass = () => {
     if (isEditing) {
-      return pin.toString().length === 4 && isButtonVisible ? 'save btn' : 'save-disabled btn';
+      return pin.length === 4 && isButtonVisible ? 'save btn' : 'save-disabled btn';
     }
     return 'edit btn';
   };
@@ -68,7 +68,7 @@ function UserProfile() {
       <div className="form">
         <div className="form-user">
           <span>Name</span>
-          <div className={`change-name  ${isEditing ? 'button-change-name btn' : ''}`}>
+          <div className={`change-name ${isEditing ? 'button-change-name btn' : ''}`}>
             <input
               className="user-input"
               placeholder="Admin"
@@ -81,7 +81,7 @@ function UserProfile() {
         <span className="change-color" />
         <div className="password">
           <span>PIN for profile</span>
-          <div className={`change-pin  ${isEditing ? 'button-change-pin btn' : ''}`}>
+          <div className={`change-pin ${isEditing ? 'button-change-pin btn' : ''}`}>
             <input
               className="pin-input"
               placeholder="0"
@@ -95,21 +95,21 @@ function UserProfile() {
       </div>
       <div className="button-back-profile">
         <div className="button-group">
-          <div className={`button-message ${successMessage ? 'show-toast' : ''}`}>
+          <div className="button-message">
             {successMessage && (
-              <span className="toast-message show-toast">
+              <span className="toast-message">
                 {successMessage}
               </span>
             )}
             <button
               onClick={handleSubmit}
-              className={`${buttonClass()} ${successMessage ? 'show-toast' : ''}`}
+              className={buttonClass()}
               type="button"
-              disabled={isEditing && (!isButtonVisible || pin.toString().length !== 4)}
+              disabled={isEditing && (!isButtonVisible || pin.length !== 4)}
             >
               {isEditing ? 'Save' : 'Edit'}
             </button>
-            {isEditing ? (
+            {isEditing && (
               <button
                 className="save btn"
                 type="button"
@@ -117,7 +117,7 @@ function UserProfile() {
               >
                 Cancel
               </button>
-            ) : null}
+            )}
           </div>
         </div>
         <Link to="/">
