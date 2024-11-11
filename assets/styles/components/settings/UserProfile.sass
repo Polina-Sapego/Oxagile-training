@@ -1,0 +1,194 @@
+@import "../../common"
+$white: #fff
+
+.settings-title
+  @extend .font-medium
+  color: $yellow
+  position: relative
+  top: 4vh
+  text-align: center
+
+.profile
+  @extend .font-large
+  text-align: center
+
+.form
+  position: relative
+  line-height: 7.9rem
+  width: 41vw
+  height: 41vh
+  margin: 0 auto
+
+  .form-user
+    display: flex
+    justify-content: space-between
+    font-size: 1.8rem
+    align-items: center
+
+    .change-name
+      width: 48.5%
+      height: 7vh
+      display: flex
+      justify-content: center
+
+    .button-change-name
+      @extend .button-black
+
+      &:hover
+        @extend .button-back
+
+      &:hover .user-input
+        color: $black
+
+      &.btn
+        border-radius: 50px
+        font-size: 1.7rem
+
+      &:focus-within
+        background-color: $yellow
+
+    .user-input
+      position: relative
+      width: 80%
+      color: $white
+      background-color: transparent
+      font-size: 1.7rem
+      text-align: center
+      border: 1px solid transparent
+      outline: none
+
+      &:focus::placeholder
+        color: transparent
+
+      &:hover,
+      &:focus
+        color: $black
+
+      &:disabled
+        color: $white
+
+  .password
+    display: flex
+    justify-content: space-between
+    font-size: 1.8rem
+    align-items: center
+
+    .change-pin
+      width: 48.5%
+      padding: 20px 0
+      text-align: center
+      display: flex
+      align-items: center
+      justify-content: center
+
+    .button-change-pin
+      @extend .button-black
+
+      &:hover
+        @extend .button-back
+
+      &.btn
+        border-radius: 50px
+        font-size: 1.7rem
+
+      &:focus-within
+        background-color: $yellow
+
+      &:hover .pin-input
+        color: $black
+
+    .pin-input
+      width: 80%
+      color: $white
+      background-color: transparent
+      font-size: 1.7rem
+      text-align: center
+      border: 1px solid transparent
+      outline: none
+
+      &:focus::placeholder
+        color: transparent
+
+      &:hover,
+      &:focus
+        color: $black
+
+      &:disabled
+        color: $white
+
+.button-back-profile
+  display: flex
+  flex-direction: column
+  justify-content: center
+  gap: 10px
+  align-items: center
+  margin-top: 80px
+  position: relative
+
+  .button-group
+    display: flex
+    gap: 20px
+    width: 100%
+    justify-content: center
+    position: relative
+
+    .button-message
+      width: 100%
+      height: 110px
+      text-align: center
+
+      .toast-message
+        display: block
+        color: #008300
+        transition: opacity 0.3s ease
+
+      .edit
+        width: 20.5%
+        padding: 20px 0
+        text-align: center
+        @extend .button-black
+
+        &.btn
+          border-radius: 50px
+          font-size: 1.7rem
+
+        &:hover
+          @extend .button-back
+
+      .save
+        width: 19.5%
+        padding: 20px 0
+        margin-left: 10px
+        text-align: center
+        @extend .button-black
+
+        &.btn
+          border-radius: 50px
+          font-size: 1.7rem
+
+        &:hover
+          @extend .button-back
+
+      .save-disabled
+         width: 19.5%
+         padding: 20px 0
+         margin-left: 10px
+         text-align: center
+         @extend .button-disabled
+
+         &.btn
+          border-radius: 50px
+          font-size: 1.7rem
+
+  .back
+    width: 20vw
+    padding: 20px 0
+    @extend .button-black
+    text-align: center
+
+    &.btn
+      border-radius: 50px
+      font-size: 1.7rem
+
+    &:hover
+      @extend .button-back

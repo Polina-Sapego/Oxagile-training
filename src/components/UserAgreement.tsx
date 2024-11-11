@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '@styles/UserAgreement.sass';
 import Agreementtext from './Agreementtext';
 
 function UserAgreement() {
@@ -12,7 +11,7 @@ function UserAgreement() {
 
   return (
     <>
-      <div className="kebab-case">
+      <div className="user-agreement-page">
         <h1 className="setting-agreement">НАСТРОЙКИ</h1>
         <h2 className="user-agreement">Пользовательское соглашение</h2>
         <h3 className="user-agreement-beeline">Пользовательское соглашение билайн тв</h3>
