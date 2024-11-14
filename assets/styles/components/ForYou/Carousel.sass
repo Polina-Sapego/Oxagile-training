@@ -1,0 +1,70 @@
+$black: #0c0707
+
+.main-carousel
+  height: 100%
+  width: 100%
+
+  .window
+    height: 100%
+    width: 100%
+    position: relative
+    overflow: hidden
+
+    &::before
+      content: ""
+      position: absolute
+      top: 0
+      width: 10%
+      height: 100%
+      z-index: 1
+      left: 0
+      background: linear-gradient(to right, rgba($black, 0.9), transparent)
+
+    .all-pages-container
+      height: 100%
+      display: flex
+      transition: transform 300ms ease-in-out
+
+      .carousel-page
+        position: relative
+        min-width: 50%
+        max-width: 50%
+
+        .page
+          height: 90%
+
+          .image-container
+            position: relative
+            height: 100%
+            width: 100%
+
+            .page-image
+              position: relative
+              height: 100%
+              width: 100%
+
+            .page-content
+              position: absolute
+              width: 90%
+              bottom: 0
+              text-align: left
+              padding: 5%
+              background: linear-gradient(to top, rgba($black, 0.9), transparent)
+
+  .arrow-left, .arrow-right
+    position: absolute
+    top: 50%
+    width: 1.5vw
+    height: 3vh
+    padding: 10px
+    border-radius: 50%
+    background-color: $black
+    transform: translateY(-50%)
+    z-index: 2
+    cursor: pointer
+
+    &.arrow-left
+      left: 140px
+
+    &.arrow-right
+      right: 50px

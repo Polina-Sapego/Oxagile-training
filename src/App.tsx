@@ -1,18 +1,17 @@
 import React from 'react';
-import {
-  BrowserRouter, Route, Routes, Navigate,
-} from 'react-router-dom';
-import Settings from './components/Settings';
-import UserProfile from './components/UserProfile';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Settings from './components/Settings/Settings';
+import UserProfile from './components/Settings/UserProfile';
+import ForYou from './components/ForYou/Foryou';
 import MainLayout from './layouts/MainLayout';
-import UserAgreement from './components/UserAgreement';
+import UserAgreement from './components/Settings/UserAgreement';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route index element={<Navigate to="settings" replace />} />
+          <Route index element={<ForYou />} />
           <Route path="settings" element={<Settings />}>
             <Route path="profile" element={<UserProfile />} />
             <Route path="useragreement" element={<UserAgreement />} />

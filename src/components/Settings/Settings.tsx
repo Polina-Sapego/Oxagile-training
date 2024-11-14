@@ -26,19 +26,19 @@ function Settings() {
   }];
 
   return (
-    <>
-      {isMainSettingsPage && (
       <>
-        <h1 className="title-block">Settings</h1>
-        <div className="settings">
-          {settings.map((item) => (
-            <Setting key={item.id} item={item} />
-          ))}
-        </div>
+        {isMainSettingsPage && (
+          <>
+            <h1 className="title-block">Settings</h1>
+            <div className="settings">
+              {settings.map((item) => (
+                <Setting key={item.id} item={item} />
+              ))}
+            </div>
+          </>
+        )}
+        <Outlet />
       </>
-      )}
-      <Outlet />
-    </>
   );
 }
 

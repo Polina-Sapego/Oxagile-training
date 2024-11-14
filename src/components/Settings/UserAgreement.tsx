@@ -24,7 +24,7 @@ function UserAgreement() {
         </div>
       </div>
       <div className="buttons-panel">
-        <Link to="/">
+        <Link to="/settings">
           <button className="button-back-agreement btn" type="button">Назад</button>
         </Link>
         <button className="view-all btn" onClick={handleViewAll} type="button">
