@@ -1,37 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SettingsDisabled from '@images/settings-disabled.png';
 import Settings from '@images/settings.png';
 import Main from '@images/main.png';
 import MainDisabled from '@images/main-disabled.png';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 function Navigation() {
-  const [isHoveredSettings, setIsHoveredSettings] = useState(false);
-  const [isHoveredMain, setIsHoveredMain] = useState(false);
   const location = useLocation();
-
-  const isSettingsPage = location.pathname === '/settings';
+  const isSettingsPage = location.pathname.startsWith('/settings');
   const isMainPage = location.pathname === '/';
+
   return (
     <nav className="navigation">
-      <Link to="settings">
+      <NavLink to="settings" className="navigation-setting">
         <img
-          className="navigation-setting"
-          src={isSettingsPage || isHoveredSettings ? Settings : SettingsDisabled}
+          src={isSettingsPage ? Settings : SettingsDisabled}
           alt="settings button"
-          onMouseEnter={() => setIsHoveredSettings(true)}
-          onMouseLeave={() => setIsHoveredSettings(false)}
         />
-      </Link>
-      <Link to="/">
+      </NavLink>
+      <NavLink to="/" className="navigation-main">
         <img
-          className="navigation-main"
-          src={isMainPage || isHoveredMain ? Main : MainDisabled}
+          src={isMainPage ? Main : MainDisabled}
           alt="main button"
-          onMouseEnter={() => setIsHoveredMain(true)}
-          onMouseLeave={() => setIsHoveredMain(false)}
         />
-      </Link>
+      </NavLink>
     </nav>
   );
 }
