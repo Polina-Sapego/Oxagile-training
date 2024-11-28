@@ -6,6 +6,7 @@ import Settings from './components/Settings';
 import UserProfile from './components/UserProfile';
 import MainLayout from './layouts/MainLayout';
 import UserAgreement from './components/UserAgreement';
+import UserPage from './components/UserPage/UserPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="profile" element={<UserProfile />} />
             <Route path="useragreement" element={<UserAgreement />} />
           </Route>
+          <Route path="userprofile" element={<UserPage />} />
           <Route path="*" element={<h1>Not Found</h1>} />
         </Route>
       </Routes>

@@ -1,0 +1,72 @@
+$black: #0c0707
+
+.main-profile-carousel
+  position: absolute
+  padding-top: 17%
+  height: 60vh
+  width: 100vw
+
+  .window-profile
+    height: 100%
+    width: 100%
+    position: relative
+    overflow: hidden
+
+    .all-pages-profile
+      height: 100%
+      width: 20%
+      display: flex
+
+      .carousel-profiles-page
+        position: relative
+        min-width: 76%
+        max-width: 76%
+        display: flex
+        justify-content: center
+
+        .page-profiles
+          height: 90%
+
+    .add-button-container
+      margin-left: 6%
+      height: 100%
+      width: 60vw
+      position: relative
+
+      .profile-user-image
+        position: relative
+        max-width: 13vw
+        min-width: 13vw
+        height: 25vh
+        user-select: none
+
+      .add-profile
+        position: absolute
+        top: 20%
+        left: 50%
+        transform: translate(-50%, -50%)
+        font-size: 9rem
+        font-weight: bold
+        user-select: none
+
+      .add-button-title
+        position: absolute
+        width: 14vw
+
+  .arrow-left, .arrow-right
+    position: absolute
+    top: 50%
+    width: 1.5vw
+    height: 3vh
+    padding: 10px
+    border-radius: 50%
+    background-color: $black
+    transform: translateY(-50%)
+    z-index: 2
+    cursor: pointer
+
+    &.arrow-left
+      left: 140px
+
+    &.arrow-right
+      right: 50px
