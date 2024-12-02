@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Agreementtext from './Agreementtext';
+import AgreementText from './AgreementText';
 
 function UserAgreement() {
   const [viewAll, setViewAll] = useState(false);
@@ -18,13 +18,13 @@ function UserAgreement() {
         <div className="content">
           <div className="content-text">
             <div className={viewAll ? 'scrollable' : ''}>
-              <Agreementtext />
+              <AgreementText />
             </div>
           </div>
         </div>
       </div>
       <div className="buttons-panel">
-        <Link to="/">
+        <Link to="/settings">
           <button className="button-back-agreement btn" type="button">Назад</button>
         </Link>
         <button className="view-all btn" onClick={handleViewAll} type="button">
