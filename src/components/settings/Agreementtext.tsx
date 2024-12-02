@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Navigation() {
+function AgreementText() {
   return (
     <div>
       <p className="text">Настоящее Пользовательское соглашение (далее - Соглашение) представляет собой </p>
@@ -79,4 +79,4 @@ function Navigation() {
   );
 }
 
-export default Navigation;
+export default AgreementText;

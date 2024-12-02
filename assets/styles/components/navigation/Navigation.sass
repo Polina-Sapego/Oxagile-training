@@ -7,20 +7,16 @@
   background: radial-gradient(100% 100% at 0% 0%, #242C33 0%, #14171A 57.77%, #0B0B0D 100%)
   border-radius: 0 100% 100% 0
   z-index: 9999
+  display: flex
+  flex-direction: column
+  align-items: center
 
-.navigation-setting,
-.navigation-main
-  position: absolute
-  left: 50%
-  transition: opacity 0.3s ease
-  object-fit: cover
-
-.navigation-setting
-  top: 63vh
-  width: 2.5vw
-  height: 5vh
-
-.navigation-main
-  top: 25vh
-  width: 2.5vw
-  height: 4.7vh
+  .navigation-setting
+    position: relative
+    margin-top: 25vh
+    margin-bottom: 21vh
+    width: 2vw
+    height: 2vh
+    left: 12%
+    transition: opacity 0.3s ease
+    object-fit: cover

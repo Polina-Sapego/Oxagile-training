@@ -40,35 +40,30 @@ function Carousel({ posts }: IForYou) {
   }, [offset, pageWidth]);
 
   return (
-    <div className="main-carousel">
-      <div className="window">
-        <div className="all-pages-container" style={{ transform: `translateX(${offset}px)` }}>
+    <div className="main-forYou-carousel">
+      <div className="visible-part-carousel-forYou">
+        <div className="all-forYou-pages-container" style={{ transform: `translateX(${offset}px)` }}>
           {posts.map((postItem, index) => (
             <div
               key={postItem.id}
-              className={`carousel-page ${index === visibleIndex ? 'active' : ''}`}
+              className={`carousel-forYou-page ${index === visibleIndex ? 'active' : ''}`}
               style={{
                 paddingLeft: index === 0 ? '210px' : 'none',
               }}
             >
               <div
-                className="page"
-                style={{
-                  width: index === visibleIndex ? '95%' : '90%',
-                  marginTop: index === visibleIndex ? '2%' : '5%',
-                  boxShadow: index === visibleIndex ? '-20px 20px 20px 0px rgba(255, 217, 25, 1)' : 'none',
-                }}
+                className={`forYou-carousel-item ${index === visibleIndex ? 'forYou-carousel-item-active' : ''}`}
               >
-                <div className="image-container">
-                  <img src={PostCarousel} className="page-image" alt="carousel" />
-                  <div className="page-content">
+                <div className="image-forYou-container">
+                  <img src={PostCarousel} className="page-forYou-image" alt="" />
+                  <div className="page-forYou-content">
                     <h1>{postItem.title}</h1>
                     <h2>
-                          <span style={{ marginRight: '10px' }}>
-                              {`${postItem.id}+ |`}
-                            </span>
-                          <span>{postItem.albumId}</span>
-                        </h2>
+                      <span style={{ marginRight: '10px' }}>
+                        {`${postItem.id}+ |`}
+                      </span>
+                      <span>{postItem.albumId}</span>
+                    </h2>
                   </div>
                 </div>
               </div>

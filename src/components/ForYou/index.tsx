@@ -11,11 +11,9 @@ function ForYou() {
   }, []);
 
   return (
-    <div className="special-body">
-      <div className="foryou-page">
-        <div className="post-wrapper">
-          <Carousel posts={posts} />
-        </div>
+    <div className="forYou-body">
+      <div className="post-forYou-wrapper">
+        <Carousel posts={posts} />
       </div>
     </div>
   );
