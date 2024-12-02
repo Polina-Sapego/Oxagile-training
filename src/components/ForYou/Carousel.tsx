@@ -17,7 +17,7 @@ interface IForYou {
 function Carousel({ posts }: IForYou) {
   const [offset, setOffset] = useState(0);
   const [visibleIndex, setVisibleIndex] = useState(0);
-  const pageWidth = ((window.innerWidth * 47.5) / 100);
+  const pageWidth = ((window.innerWidth * 52.5) / 100);
 
   const handleLeftArrowClick = () => {
     setOffset((currentOffset) => {
@@ -52,7 +52,7 @@ function Carousel({ posts }: IForYou) {
               }}
             >
               <div
-                className={`forYou-carousel-item ${index === visibleIndex ? 'forYou-carousel-item-active' : ''}`}
+                className={`forYou-carousel-item ${index === visibleIndex ? 'forYou-carousel-item-active' : 'forYou-carousel-item-disabled'}`}
               >
                 <div className="image-forYou-container">
                   <img src={PostCarousel} className="page-forYou-image" alt="" />
