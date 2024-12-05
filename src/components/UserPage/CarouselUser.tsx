@@ -1,30 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import BlueProfile from '@images/BlueProfile.png';
-import AddButton from '@images/addButton.png';
-import AddButtonActive from '@images/addButtonActive.png';
-import Profile from './Profile';
+import { NavLink } from 'react-router-dom';
+import Profile, { IProfileUserItem } from './Profile';
 
 function CarouselUser() {
   const [offset, setOffset] = useState(0);
   const pageWidth = ((window.innerWidth * 0.5) / 100);
   const [visibleIndex, setVisibleIndex] = useState(0);
 
-  const ProfileList = [{
+  const ProfileList: IProfileUserItem[] = [{
     id: 1,
     title: 'Степан',
-    img: BlueProfile,
   },
   ];
-  function createStyles(index: number) {
-    return ({
-      width: index === visibleIndex ? '100%' : '90%',
-      transform: index === visibleIndex ? 'scale(1.23)' : 'scale(1)',
-      transition: 'transform 0.3s ease, margin-top 0.3s ease',
-      marginTop: index === visibleIndex ? '23%' : '10%',
-      color: index === visibleIndex ? '#FFD919' : '',
-    });
-  }
 
   const handleLeftArrowClick = () => {
     setOffset((currentOffset) => {
@@ -41,6 +29,11 @@ function CarouselUser() {
     });
   };
 
+  const handleProfileClick = (index: number) => {
+    setVisibleIndex(index);
+    setOffset(-(index * pageWidth));
+  };
+
   useEffect(() => {
     const centerIndex = Math.round(Math.abs(offset) / pageWidth);
     setVisibleIndex(centerIndex);
@@ -48,7 +41,7 @@ function CarouselUser() {
 
   return (
     <div className="main-profile-carousel">
-      <div className="window-profile">
+      <div className="visible-part-carousel-profile">
         <div className="all-pages-profile" style={{ transform: `translateX(${offset}px)` }}>
           {ProfileList.map((profile, index) => (
             <div
@@ -57,35 +50,52 @@ function CarouselUser() {
               style={{
                 paddingLeft: index === 0 ? '250px' : 'none',
               }}
+              onClick={() => handleProfileClick(index)}
             >
               <div
-                className="page-profiles"
-                style={createStyles(index)}
+                className={`profiles-carousel-item 
+                ${index === visibleIndex
+                  ? 'profiles-carousel-item-active'
+                  : 'profiles-carousel-item-disabled'}`}
               >
                 <Profile key={profile.id} profile={profile} />
               </div>
             </div>
           ))}
           {ProfileList.length < 6 && (
-          <div className="add-button-container" style={createStyles(ProfileList.length)}>
-            <img
-              className="profile-user-image"
-              src={visibleIndex === ProfileList.length ? AddButtonActive : AddButton}
-            />
-            <span
-              className="add-profile"
-              style={{ color: visibleIndex === ProfileList.length ? '#14171A' : '#ffff' }}
+            <NavLink
+              className="link-add-button"
+              to="nameuser"
+              onClick={() => handleProfileClick(ProfileList.length)}
             >
-              +
-            </span>
-            {visibleIndex === ProfileList.length
+              <div className="add-button-carousel-page">
+                <div className={`add-button-container  ${ProfileList.length === visibleIndex ? 'add-button-item-active' : 'add-button-item-disabled'}`}>
+                  <div className="add-container">
+                    <div className="add-image-container">
+                      <div
+                        className={`profile-user-image ${ProfileList.length === visibleIndex ? 'profile-user-image-active' : ''}`}
+                      />
+                      <span
+                        className="add-profile"
+                        style={{ color: visibleIndex === ProfileList.length ? '#14171A' : '#ffff' }}
+                      >
+                        +
+                      </span>
+                    </div>
+                    {visibleIndex === ProfileList.length
                     && <h1 className="add-button-title">Создать профиль</h1>}
-          </div>
+                  </div>
+                </div>
+              </div>
+            </NavLink>
           )}
         </div>
       </div>
-      <FaChevronLeft className="arrow-left" onClick={handleLeftArrowClick} />
-      <FaChevronRight className="arrow-right" onClick={handleRightArrowClick} />
+      {visibleIndex > 0 && (
+        <FaChevronLeft className="arrow-left" onClick={handleLeftArrowClick} />
+      )}
+      {visibleIndex < ProfileList.length + (ProfileList.length < 6 ? 0 : -1) && (
+        <FaChevronRight className="arrow-right" onClick={handleRightArrowClick} />)}
     </div>
   );
 }

@@ -6,7 +6,9 @@ import Settings from './components/Settings';
 import UserProfile from './components/UserProfile';
 import MainLayout from './layouts/MainLayout';
 import UserAgreement from './components/UserAgreement';
-import UserPage from './components/UserPage/UserPage';
+import UserPage from './components/UserPage';
+import AddNameUser from './components/UserPage/AddNameUser';
+import AddColorsUser from './components/UserPage/AddColorsUser';
 
 function App() {
   return (
@@ -18,7 +20,10 @@ function App() {
             <Route path="profile" element={<UserProfile />} />
             <Route path="useragreement" element={<UserAgreement />} />
           </Route>
-          <Route path="userprofile" element={<UserPage />} />
+          <Route path="userprofile" element={<UserPage />}>
+            <Route path="nameuser" element={<AddNameUser />} />
+            <Route path="coloruser" element={<AddColorsUser />} />
+          </Route>
           <Route path="*" element={<h1>Not Found</h1>} />
         </Route>
       </Routes>

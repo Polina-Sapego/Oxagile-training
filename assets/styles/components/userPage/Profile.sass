@@ -1,0 +1,29 @@
+.profile-container
+  display: flex
+  flex-direction: column
+  align-items: center
+  text-align: center
+  user-select: none
+
+  .profile-image-container
+    position: relative
+
+    .profile-image
+      width: 13vw
+      height: 26vh
+      background: radial-gradient(65.88% 65.88% at 93.75% 6.25%, #39A4E4 0%, #3B30CE 100%)
+      border-radius: 50%
+      user-select: none
+
+    .profile-initial
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      font-size: 9rem
+      color: $white
+      font-weight: bold
+
+  .profile-title
+    display: flex
+    justify-content: center
