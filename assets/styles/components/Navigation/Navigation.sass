@@ -1,17 +1,78 @@
+$green-gradient: #4eff39, #1dbc0c
+$orange-gradient: #f4bf38, #e56231
+$red-gradient: #f57435, #e63030
+$pink-gradient: #dc49c2, #ee1478
+$blue-gradient: #39a4e4, #3b30ce
+$gradient-circle: circle at 92% 8%
+
 .navigation
   position: absolute
   margin: 0
-  height: 100vh
-  width: 5vw
-  user-select: none
+  height: 100%
+  width: 9vw
+  left: -3vw
+  border-radius: 0 100% 100% 0
   z-index: 9999
+  display: flex
+  flex-direction: column
+  align-items: center
 
   .navigation-setting
-    position: absolute
-    padding-top: 82vh
-    left: 27%
+    position: relative
+    margin-top: 40.5vh
+    margin-bottom: 5vh
+    width: 2vw
+    height: 2vh
+    left: 26%
+    transition: opacity 0.3s ease
+    object-fit: cover
+    user-select: none
 
-  .navigation-user
-    position: absolute
-    padding-top: 74vh
-    left: 20%
+  .navigation-profile
+    position: relative
+    margin-top: -15vh
+    width: 2vw
+    height: 2vh
+    left: 26%
+    transition: opacity 0.3s ease
+    object-fit: cover
+
+    .profile-container-navigation
+      display: flex
+      flex-direction: column
+      align-items: center
+      text-align: center
+      user-select: none
+
+      .profile-image-container-navigation
+        position: relative
+
+        .profile-image-navigation
+          width: 42px
+          height: 42px
+          border-radius: 50%
+          user-select: none
+
+          &.green
+            background-image: radial-gradient($gradient-circle, $green-gradient)
+
+          &.orange
+            background-image: radial-gradient($gradient-circle, $orange-gradient)
+
+          &.red
+            background-image: radial-gradient($gradient-circle, $red-gradient)
+
+          &.pink
+            background-image: radial-gradient($gradient-circle, $pink-gradient)
+
+          &.blue
+            background-image: radial-gradient($gradient-circle, $blue-gradient)
+
+        .profile-initial-navigation
+          position: absolute
+          top: 50%
+          left: 50%
+          transform: translate(-50%, -50%)
+          font-size: 1.5rem
+          color: $white
+          font-weight: bold

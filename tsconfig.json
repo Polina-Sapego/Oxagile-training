@@ -8,7 +8,9 @@
     "baseUrl": ".",
     "paths": {
       "@images/*": ["./assets/images/*"],
-      "@styles/*": ["./assets/styles/*"]
+      "@styles/*": ["./assets/styles/*"],
+      "@redux/*": ["./src/redux/*"],
+      "@components/*": ["./src/components/*"],
     },
     "target": "es6",
     "jsx": "react",

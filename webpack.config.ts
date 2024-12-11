@@ -72,8 +72,10 @@ const config: Configuration = {
     alias: {
       '@images': path.resolve(__dirname, './assets/images/'),
       '@styles': path.resolve(__dirname, './assets/styles/'),
+      '@redux': path.resolve(__dirname, './src/redux/'),
+      '@components': path.resolve(__dirname, './src/components/'),
     },
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js', '.png'],
   },
   devServer: {
     historyApiFallback: true,

@@ -1,19 +1,39 @@
+$green-gradient: #4eff39, #1dbc0c
+$orange-gradient: #f4bf38, #e56231
+$red-gradient: #f57435, #e63030
+$pink-gradient: #dc49c2, #ee1478
+$blue-gradient: #39a4e4, #3b30ce
+$gradient-circle: circle at 92% 8%
+
 .profile-container
   display: flex
   flex-direction: column
   align-items: center
-  text-align: center
   user-select: none
 
   .profile-image-container
     position: relative
 
     .profile-image
-      width: 13vw
-      height: 26vh
-      background: radial-gradient(65.88% 65.88% at 93.75% 6.25%, #39A4E4 0%, #3B30CE 100%)
+      width: 13.1vw
+      height: 13.1vw
       border-radius: 50%
       user-select: none
+
+      &.green
+        background-image: radial-gradient($gradient-circle, $green-gradient)
+
+      &.orange
+        background-image: radial-gradient($gradient-circle, $orange-gradient)
+
+      &.red
+        background-image: radial-gradient($gradient-circle, $red-gradient)
+
+      &.pink
+        background-image: radial-gradient($gradient-circle, $pink-gradient)
+
+      &.blue
+        background-image: radial-gradient($gradient-circle, $blue-gradient)
 
     .profile-initial
       position: absolute

@@ -9,25 +9,25 @@ $dark-grey: #242c33
 
   .visible-part-carousel-profile
     height: 100%
-    width: 100%
-    position: relative
     overflow: hidden
 
     .all-pages-profile
       height: 100%
       width: 20%
       display: flex
+      transition: all 0.3s ease
 
       .carousel-profiles-page
         position: relative
         min-width: 76%
         max-width: 76%
-        display: flex
-        justify-content: center
 
         .profiles-carousel-item-active
+          position: relative
           transform: scale(1.23)
           transition: all 0.3s ease
+          margin-left: 3%
+          margin-right: 3%
           margin-top: 23%
           color: $yellow
 
@@ -38,6 +38,27 @@ $dark-grey: #242c33
 
         .profiles-carousel-item
           height: 90%
+
+          .checkmark-image-container-carousel
+            width: 3vw
+            height: 5.7vh
+            position: absolute
+            top: 0.2vh
+            right: 0.3vw
+            border-radius: 50%
+            background-color: $white
+            box-shadow: 0 0.2vw 0.3vw 0 rgba($black, 0.5)
+            padding: 0.8vh
+            display: flex
+            align-items: center
+            justify-content: center
+            user-select: none
+
+            .checkmark-image-carousel
+              width: 1.8vw
+              height: 4vh
+              object-fit: contain
+              user-select: none
 
     .link-add-button
       margin-left: 2.7vw
@@ -76,8 +97,8 @@ $dark-grey: #242c33
     position: relative
 
     .profile-user-image
-      width: 13vw
-      height: 26vh
+      width: 13.1vw
+      height: 13.1vw
       background-color: $dark-grey
       border-radius: 50%
       user-select: none
@@ -111,6 +132,7 @@ $dark-grey: #242c33
   border-radius: 50%
   background-color: $black
   transform: translateY(-50%)
+  transition: all 0.3s ease
   z-index: 2
   cursor: pointer
 

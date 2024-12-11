@@ -8,6 +8,16 @@
   position: absolute
   width: 100%
 
+  &::before
+    content: ""
+    position: absolute
+    top: 0
+    width: 15%
+    height: 100%
+    z-index: 1
+    left: 0
+    background: linear-gradient(to right, rgba($black, 1), transparent)
+
   .title-profile
     position: absolute
     top: 7%
