@@ -98,9 +98,9 @@ function CarouselUser() {
             <div
               role="button"
               key={profile.id}
-              className="carousel-profiles-page"
+              className={`carousel-profiles-page  ${index === visibleIndex ? 'state-selected' : ''}`}
               style={{
-                paddingLeft: index === 0 ? '250px' : 'none',
+                paddingLeft: index === 0 ? '220px' : 'none',
               }}
               onClick={() => handleProfileClick(index)}
             >

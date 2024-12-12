@@ -18,23 +18,31 @@ $dark-grey: #242c33
       transition: all 0.3s ease
 
       .carousel-profiles-page
-        position: relative
-        min-width: 76%
-        max-width: 76%
+        width: 13.1vw
+        height: 13.1vw
+        border: none
+        margin: 0 1vw
+        border-radius: 50%
+        transition: transform 0.2s ease-in-out, margin-left 0.2s ease-in-out, margin-right 0.2s ease-in-out
+
+        &.state-selected
+          transition: transform 0.2s ease-in-out, margin-left 0.2s ease-in-out, margin-right 0.2s ease-in-out
+          margin-left: 2.4vw
+          margin-right: 2.4vw
 
         .profiles-carousel-item-active
           position: relative
-          transform: scale(1.23)
+          transform: scale(1.2)
           transition: all 0.3s ease
-          margin-left: 3%
-          margin-right: 3%
-          margin-top: 23%
+          margin-left: 4%
+          margin-right: 4%
+          margin-top: 12%
           color: $yellow
 
         .profiles-carousel-item-disabled
           transform: scale(1)
           transition: all 0.3s ease
-          margin-top: 10%
+          margin-top: 13%
 
         .profiles-carousel-item
           height: 90%
@@ -75,9 +83,10 @@ $dark-grey: #242c33
         user-select: none
 
         .add-button-item-active
-          transform: scale(1.23)
-          transition: all 0.3s ease
-          margin-top: 23%
+          transform: scale(1.2)
+          transition: transform 0.2s ease-in-out, margin-left 0.2s ease-in-out, margin-right 0.2s ease-in-out
+          margin-top: 15%
+          margin-left: 20%
 
         .add-button-item-disabled
           transform: scale(1)
@@ -111,8 +120,8 @@ $dark-grey: #242c33
       top: 50%
       left: 50%
       transform: translate(-50%, -50%)
-      font-size: 9rem
-      font-weight: bold
+      font-size: 10rem
+      font-weight: normal
       user-select: none
 
   .add-button-title
