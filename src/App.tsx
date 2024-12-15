@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Settings from './components/settings';
-import UserProfile from './components/settings/UserProfile';
 import ForYou from './components/ForYou';
 import MainLayout from './layouts/MainLayout';
-import UserAgreement from './components/settings/UserAgreement';
+import Settings from './components/Settings';
+import UserProfile from './components/Settings/UserProfile';
+import UserAgreement from './components/Settings/UserAgreement';
 
 function App() {
   return (
