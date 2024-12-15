@@ -1,0 +1,83 @@
+$black: #0c0707
+
+.main-forYou-carousel
+  height: 100%
+  width: 100%
+
+  .visible-part-carousel-forYou
+    height: 100%
+    width: 100%
+    position: relative
+    overflow: hidden
+
+    &::before
+      content: ""
+      position: absolute
+      top: 0
+      width: 10%
+      height: 100%
+      z-index: 1
+      left: 0
+      background: linear-gradient(to right, rgba($black, 0.9), transparent)
+
+    .all-forYou-pages-container
+      height: 100%
+      display: flex
+      transition: transform 300ms ease-in-out
+      gap: 5vw
+
+      .carousel-forYou-page
+        position: relative
+        min-width: 50%
+        max-width: 50%
+
+        .forYou-carousel-item-active
+          width: 95%
+          margin-top: 2%
+          box-shadow: -20px 20px 20px 0px rgba(255, 217, 25, 1)
+
+        .forYou-carousel-item-disabled
+          width: 90%
+          margin-top: 5%
+          transition: all 0.3s ease
+
+        .forYou-carousel-item
+          height: 90%
+          width: 100%
+
+          .image-forYou-container
+            position: relative
+            height: 100%
+            width: 100%
+
+            .page-forYou-image
+              position: relative
+              height: 100%
+              width: 100%
+
+            .page-forYou-content
+              position: absolute
+              width: 90%
+              bottom: 0
+              text-align: left
+              padding: 5%
+              background: linear-gradient(to top, rgba($black, 0.9), transparent)
+
+  .arrow-left,
+  .arrow-right
+    position: absolute
+    top: 50%
+    width: 1.5vw
+    height: 3vh
+    padding: 10px
+    border-radius: 50%
+    background-color: $black
+    transform: translateY(-50%)
+    z-index: 2
+    cursor: pointer
+
+    &.arrow-left
+      left: 140px
+
+    &.arrow-right
+      right: 50px

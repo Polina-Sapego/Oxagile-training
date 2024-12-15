@@ -1,8 +1,8 @@
 import React, { SyntheticEvent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import addProfile, { IProfile } from '../redux/profile/actionCreators';
-import { ProfileDispatch, RootState } from '../redux/store';
+import addProfile, { IProfile } from '../../redux/profile/actionCreators';
+import { ProfileDispatch, RootState } from '../../redux/store';
 
 function UserProfile() {
   const dispatch: ProfileDispatch = useDispatch<ProfileDispatch>();
@@ -120,7 +120,7 @@ function UserProfile() {
             )}
           </div>
         </div>
-        <Link to="/">
+        <Link to="/settings">
           <button className="back btn" type="button">Back</button>
         </Link>
       </div>
