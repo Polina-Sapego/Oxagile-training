@@ -97,9 +97,9 @@ function UserProfile() {
         <div className="button-group">
           <div className="button-message">
             {successMessage && (
-              <span className="toast-message">
-                {successMessage}
-              </span>
+            <span className="toast-message">
+              {successMessage}
+            </span>
             )}
             <button
               onClick={handleSubmit}
@@ -110,13 +110,13 @@ function UserProfile() {
               {isEditing ? 'Save' : 'Edit'}
             </button>
             {isEditing && (
-              <button
-                className="save btn"
-                type="button"
-                onClick={handleCancel}
-              >
-                Cancel
-              </button>
+            <button
+              className="save btn"
+              type="button"
+              onClick={handleCancel}
+            >
+              Cancel
+            </button>
             )}
           </div>
         </div>

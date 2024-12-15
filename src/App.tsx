@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Settings from './components/Settings';
-import UserProfile from './components/Settings/UserProfile';
 import ForYou from './components/ForYou';
 import MainLayout from './layouts/MainLayout';
+import Settings from './components/Settings';
+import UserProfile from './components/Settings/UserProfile';
 import UserAgreement from './components/Settings/UserAgreement';
 
 function App() {
