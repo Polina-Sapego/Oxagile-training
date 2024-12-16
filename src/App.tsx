@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import ForYou from './components/ForYou';
+import ForYou from './components/forYou';
 import MainLayout from './layouts/MainLayout';
-import UserPage from './components/UserPage';
-import AddNameUser from './components/UserPage/AddNameUser';
-import AddColorsUser from './components/UserPage/AddColorsUser';
-import Settings from './components/Settings';
-import UserProfile from './components/Settings/UserProfile';
-import UserAgreement from './components/Settings/UserAgreement';
+import UserPage from './components/userPage';
+import AddNameUser from '@components/userPage/AddNameUser';
+import AddColorsUser from '@components/userPage/AddColorsUser';
+import Settings from './components/settings';
+import UserProfile from '@components/settings/UserProfile';
+import UserAgreement from '@components/settings/UserAgreement';
 
 function App() {
   return (

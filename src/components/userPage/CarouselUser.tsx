@@ -149,7 +149,7 @@ function CarouselUser() {
                         +
                       </span>
                     </div>
-                    { (clickedOnceAdd || visibleIndex === profileList.length)
+                    {(clickedOnceAdd || visibleIndex === profileList.length)
                     && <h1 className="add-button-title">Создать профиль</h1>}
                   </div>
                 </div>
