@@ -1,8 +1,8 @@
-@import "../../common"
-
 .user-agreement-page
-  margin: 0
-  position: relative
+  display: flex
+  flex-direction: column
+  margin: 0 auto
+  width: 50vw
   text-align: center
   padding-top: 70px
 
@@ -11,8 +11,8 @@
     color: $yellow
 
   .user-agreement
-    position: relative
-    max-width: 600px
+    display: flex
+    width: 40vw
     margin: 0 auto
     line-height: 3.6rem
     @extend .font-large
@@ -25,6 +25,8 @@
     display: flex
     justify-content: center
     align-items: center
+    width: 50vw
+    margin: 0 auto
 
     .content-text
       margin-right: 7px

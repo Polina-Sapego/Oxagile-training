@@ -120,7 +120,7 @@ function UserProfile() {
             )}
           </div>
         </div>
-        <Link to="/">
+        <Link to="/settings">
           <button className="back btn" type="button">Back</button>
         </Link>
       </div>
