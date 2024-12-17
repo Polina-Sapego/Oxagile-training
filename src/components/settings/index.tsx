@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Login from '@images/account_profile.png';
-import Support from '@images/support.png';
+import ParentalControl from '@images/parentalcontrol.png';
 import Useragreement from '@images/useragreement.png';
 import Setting, { ISettingItem } from './Setting';
 
@@ -11,12 +11,12 @@ function Settings() {
 
   const settings: Array< ISettingItem > = [{
     id: 1,
-    title: 'Profile',
+    title: 'Профиль',
     img: Login,
     link: '/settings/profile',
   },
   {
-    id: 2, title: 'Поддержка', img: Support, link: '/settings/support',
+    id: 2, title: 'Родительский контроль', img: ParentalControl, link: '/settings/support',
   },
   {
     id: 3,
