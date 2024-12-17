@@ -1,8 +1,8 @@
 import React, { SyntheticEvent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import addProfile, { IProfile } from '../../redux/profile/actionCreators';
-import { ProfileDispatch, RootState } from '../../redux/store';
+import addProfile, { IProfile } from '@redux/profile/actionCreators';
+import { ProfileDispatch, RootState } from '@redux/store';
 
 function UserProfile() {
   const dispatch: ProfileDispatch = useDispatch<ProfileDispatch>();
@@ -97,9 +97,9 @@ function UserProfile() {
         <div className="button-group">
           <div className="button-message">
             {successMessage && (
-            <span className="toast-message">
-              {successMessage}
-            </span>
+              <span className="toast-message">
+                {successMessage}
+              </span>
             )}
             <button
               onClick={handleSubmit}
@@ -110,13 +110,13 @@ function UserProfile() {
               {isEditing ? 'Save' : 'Edit'}
             </button>
             {isEditing && (
-            <button
-              className="save btn"
-              type="button"
-              onClick={handleCancel}
-            >
-              Cancel
-            </button>
+              <button
+                className="save btn"
+                type="button"
+                onClick={handleCancel}
+              >
+                Cancel
+              </button>
             )}
           </div>
         </div>

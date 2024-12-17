@@ -1,0 +1,53 @@
+.body-container-add-name
+  background: radial-gradient(circle at 0 0, #242c33, #14171a 58%, #0b0b0d)
+  position: absolute
+  width: 100%
+  height: 100%
+
+.add-new-name-user
+  display: flex
+  flex-direction: column
+  align-items: center
+  padding-top: 100px
+
+  .new-profile-user
+    @extend .font-small
+    color: $yellow
+    position: relative
+    top: 58px
+
+  .name-profile
+    @extend .font-large
+
+  .add-name-user
+    margin-top: 100px
+
+    .new-name-profile
+      width: 36vw
+      height: 7vh
+      border-radius: 50px
+      padding: 0 20px
+      font-size: 3rem
+      text-align: center
+      outline: none
+      @extend .button-black
+
+      &:focus
+        border-color: $gray
+
+  .add-name-user-button
+    margin-top: 7.5%
+
+    .button-back-user-profile
+      width: 17vw
+      padding: 20px 0
+      margin-left: 10px
+      @extend .font-medium
+      @extend .button-black
+
+      &.btn
+        border-radius: 50px
+        text-align: center
+
+      &:hover
+        @extend .button-back

@@ -7,7 +7,7 @@
   padding-top: 70px
 
   .setting-agreement
-    @extend .font-medium
+    @extend .font-small
     color: $yellow
 
   .user-agreement
@@ -51,9 +51,8 @@
   position: relative
   display: flex
   justify-content: center
-  gap: 3vw
+  gap: 3%
   transform: translateY(6vh)
-  margin-bottom: 20vh
 
   .button-back-agreement
     width: 39vh
@@ -62,7 +61,7 @@
 
     &.btn
       border-radius: 50px
-      font-size: 1.7rem
+      @extend .font-medium
 
     &:hover
       background: $yellow
@@ -75,7 +74,7 @@
 
     &.btn
       border-radius: 50px
-      font-size: 1.7rem
+      @extend .font-medium
 
     &:hover
       background: $yellow

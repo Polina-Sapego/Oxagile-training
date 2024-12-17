@@ -1,0 +1,93 @@
+.body-container-add-colors
+  background: radial-gradient(circle at 0 0, #242c33, $black 58%, #0b0b0d)
+  position: absolute
+  width: 100%
+  height: 100%
+
+.add-new-color-user
+  display: flex
+  flex-direction: column
+  align-items: center
+  padding-top: 60px
+
+  .new-profile-color
+    @extend .font-small
+    color: $yellow
+    position: relative
+    top: 58px
+
+  .color-profile
+    @extend .font-large
+
+  .color-choose
+    margin-top: 5.5%
+    display: flex
+    align-items: center
+    height: 27.6vh
+
+    .color-item
+      width: 13.1vw
+      height: 13.1vw
+      border: none
+      margin: 0 10px
+      border-radius: 50%
+      transition: transform 0.2s ease-in-out, margin-left 0.2s ease-in-out, margin-right 0.2s ease-in-out
+
+      &.green
+        background-image: radial-gradient($gradient-circle, $green-gradient)
+
+      &.orange
+        background-image: radial-gradient($gradient-circle, $orange-gradient)
+
+      &.red
+        background-image: radial-gradient($gradient-circle, $red-gradient)
+
+      &.pink
+        background-image: radial-gradient($gradient-circle, $pink-gradient)
+
+      &.blue
+        background-image: radial-gradient($gradient-circle, $blue-gradient)
+
+      &.state-focused
+        transform: translateZ(0) scale(1.2)
+        transition: transform 0.2s ease-in-out, margin-left 0.2s ease-in-out, margin-right 0.2s ease-in-out
+        margin-left: 39px
+        margin-right: 39px
+
+        .checkmark-image-container
+          width: 3vw
+          height: 5.7vh
+          position: absolute
+          top: 0.2%
+          right: 2%
+          border-radius: 50%
+          background-color: $white
+          box-shadow: 0 0.2vw 0.3vw 0 rgba($black, 0.5)
+          padding: 3.3%
+          display: flex
+          align-items: center
+          justify-content: center
+
+          .checkmark-image
+            width: 1.8vw
+            height: 4vh
+            object-fit: contain
+
+  .add-color-user-button
+    margin-top: 125px
+    display: flex
+    flex-direction: row
+    gap: 26px
+
+    .button-back-color-profile
+      width: 23vw
+      padding: 18px 0
+      @extend .font-medium
+      @extend .button-black
+
+      &.btn
+        border-radius: 50px
+        text-align: center
+
+      &:hover
+        @extend .button-back
