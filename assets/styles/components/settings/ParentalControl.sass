@@ -7,6 +7,16 @@
   display: flex
   flex-direction: column
 
+  &::before
+    content: ""
+    position: absolute
+    top: 0
+    width: 15%
+    height: 100%
+    z-index: 1
+    left: 0
+    background: linear-gradient(to right, rgba($black, 1), transparent)
+
   .parental-control-choose
     font-size: 2.2rem
     position: relative
@@ -21,7 +31,7 @@
 
     .visible-part-carousel-profile-parental
       height: 88%
-      width: 88%
+      width: 100%
       overflow: hidden
       display: flex
       justify-content: center

@@ -8,9 +8,6 @@ const initialState: INewUsers = {
     {
       id: 1, name: 'Степан', color: 'blue', selected: true, parentalRating: 18, isAdmin: true,
     },
-    {
-      id: 2, name: 'User', color: 'green', selected: false, parentalRating: 18, isAdmin: false,
-    },
   ],
 };
 
