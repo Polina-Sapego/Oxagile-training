@@ -1,12 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit';
-import ProfileReducer from './profile/reducer';
+import { loadStateFromLocalStorage, saveStateToLocalStorage } from '../utils/localStorage';
 import NewUser from './newUser/reducer';
+
+const persistedState = loadStateFromLocalStorage();
 
 const store = configureStore({
   reducer: {
-    profile: ProfileReducer,
     newUser: NewUser,
   },
+  preloadedState: persistedState,
+});
+
+store.subscribe(() => {
+  saveStateToLocalStorage(store.getState());
 });
 
 export type RootState = ReturnType<typeof store.getState>;

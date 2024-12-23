@@ -34,7 +34,7 @@ function Navigation() {
             <div
               className={`profile-image-navigation ${selectedProfile.color}`}
             />
-            <span className="profile-initial-navigation">{selectedProfile.name[0].toUpperCase()}</span>
+            <span className="profile-initial-navigation">{selectedProfile.name[0]?.toUpperCase()}</span>
           </div>
         </div>
       </NavLink>

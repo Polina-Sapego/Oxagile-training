@@ -1,72 +1,50 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, useSearchParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import Tick from '@images/tick.png';
-import { addUsersAction } from '@redux/newUser/actionCreators';
-import { IProfileUserItem } from './Profile';
+import ColorCarousel from '@components/UI/ColorCarousel';
 
 function AddColorsUser() {
-  const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
   const [selectedColor, setSelectedColor] = useState<string>('green');
   const username = searchParams.get('name');
+  const NewUsercolor = searchParams.get('color');
 
-  const saveColor = () => {
-    const newProfile: IProfileUserItem = {
-      id: Date.now(),
-      name: username!,
-      color: selectedColor,
-      selected: false,
-    };
+  useEffect(() => {
+    const savedColor = localStorage.getItem('selectedColor');
+    if (savedColor) {
+      setSelectedColor(savedColor);
+    } else if (NewUsercolor) {
+      setSelectedColor(NewUsercolor);
+    }
+  }, [NewUsercolor]);
 
-    dispatch(addUsersAction(newProfile));
-  };
+  useEffect(() => {
+    if (NewUsercolor) {
+      setSelectedColor(NewUsercolor);
+    }
+  }, [NewUsercolor]);
 
   const handleColorClick = (color: string) => {
     setSelectedColor(color);
+    localStorage.setItem('selectedColor', color);
   };
 
   return (
     <div className="body-container-add-colors">
-      <div className="add-new-color-user">
-        <h1 className="new-profile-color">НОВЫЙ ПРОФИЛЬ</h1>
-        <h2 className="color-profile">Цвет профиля</h2>
-        <div className="color-choose">
-          {['green', 'orange', 'red', 'pink', 'blue'].map((color) => (
-            <button
-              key={color}
-              className={`color-item ${color} ${selectedColor === color ? 'state-focused' : ''}`}
-              onClick={() => handleColorClick(color)}
-              type="button"
-            >
-              {selectedColor === color && (
-                <div className="checkmark-image-container">
-                  <img
-                    src={Tick}
-                    alt="Selected"
-                    className="checkmark-image"
-                  />
-                </div>
-              )}
-            </button>
-          ))}
-        </div>
-        <div className="add-color-user-button">
-          <NavLink
-            to={`/userprofile/nameuser?name=${username}`}
+      <ColorCarousel selectedColor={selectedColor} handleColorClick={handleColorClick} />
+      <div className="add-color-user-button">
+        <NavLink
+          to={`/userprofile/nameuser?name=${username}`}
+        >
+          <button className="button-back-color-profile btn" type="button">Назад</button>
+        </NavLink>
+        <NavLink to={`/userprofile/ageuser?color=${selectedColor}&name=${username}`}>
+          <button
+            className="button-back-color-profile btn"
+            type="button"
           >
-            <button className="button-back-color-profile btn" type="button">Назад</button>
-          </NavLink>
-          <NavLink to="/userprofile">
-            <button
-              className="button-back-color-profile btn"
-              type="button"
-              onClick={saveColor}
-            >
-              Сохранить
-            </button>
-          </NavLink>
-        </div>
+            Далее
+          </button>
+        </NavLink>
       </div>
     </div>
   );

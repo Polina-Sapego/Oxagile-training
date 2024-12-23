@@ -4,8 +4,7 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { updateUserSelectedAction } from '@redux/newUser/actionCreators';
 import { NavLink } from 'react-router-dom';
 import { RootState } from '@redux/store';
-import Tick from '@images/tick.png';
-import Profile from './Profile';
+import UserCarousel from '@components/UI/UserCarousel';
 
 function CarouselUser() {
   const [offset, setOffset] = useState(0);
@@ -74,6 +73,7 @@ function CarouselUser() {
     }
     setClickedOnceAdd(false);
     setVisibleIndex(index);
+
     if (index === 0 && offset !== 0) {
       setOffset((currentOffset) => {
         const newOffset = currentOffset + pageWidth;
@@ -94,35 +94,7 @@ function CarouselUser() {
     <div className="main-profile-carousel">
       <div className="visible-part-carousel-profile">
         <div className="all-pages-profile" style={{ transform: `translateX(${offset}px)` }}>
-          {profileList.map((profile, index) => (
-            <div
-              role="button"
-              key={profile.id}
-              className={`carousel-profiles-page  ${index === visibleIndex ? 'state-selected' : ''}`}
-              style={{
-                paddingLeft: index === 0 ? '220px' : 'none',
-              }}
-              onClick={() => handleProfileClick(index)}
-            >
-              <div
-                className={`profiles-carousel-item 
-                ${index === visibleIndex
-                  ? 'profiles-carousel-item-active'
-                  : 'profiles-carousel-item-disabled'}`}
-              >
-                <Profile key={profile.id} profile={profile} />
-                {profile.selected && (
-                <div className="checkmark-image-container-carousel">
-                  <img
-                    src={Tick}
-                    alt="Selected"
-                    className="checkmark-image-carousel"
-                  />
-                </div>
-                )}
-              </div>
-            </div>
-          ))}
+          <UserCarousel visibleIndex={visibleIndex} handleProfileClick={handleProfileClick} />
           {profileList.length < 6 && (
             <NavLink
               className="link-add-button"

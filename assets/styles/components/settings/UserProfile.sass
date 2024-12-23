@@ -1,5 +1,3 @@
-$white: #fff
-
 .settings-title
   @extend .font-small
   color: $yellow
@@ -72,15 +70,25 @@ $white: #fff
     font-size: 1.8rem
     align-items: center
 
-    .change-pin
-      width: 48.5%
+  .change-color
+    position: relative
+    display: flex
+    flex-direction: column
+    z-index: 1
+    width: 50%
+    text-decoration: none
+    outline: none
+
+    .change-color
+      height: 20%
+      width: 100%
       padding: 20px 0
       text-align: center
       display: flex
       align-items: center
       justify-content: center
 
-    .button-change-pin
+    .button-change-color
       @extend .button-black
 
       &:hover
@@ -93,27 +101,26 @@ $white: #fff
       &:focus-within
         background-color: $yellow
 
-      &:hover .pin-input
+      &:hover .color-input
         color: $black
 
-    .pin-input
-      width: 80%
-      color: $white
-      background-color: transparent
-      @extend .font-medium
-      text-align: center
-      border: 1px solid transparent
-      outline: none
-
-      &:focus::placeholder
-        color: transparent
-
-      &:hover,
-      &:focus
-        color: $black
-
-      &:disabled
+      .color-input
+        width: 100%
         color: $white
+        background-color: transparent
+        @extend .font-medium
+        text-align: center
+        border: 1px solid transparent
+
+        &:focus::placeholder
+          color: transparent
+
+        &:hover,
+        &:focus
+          color: $black
+
+        &:disabled
+          color: $white
 
 .button-back-profile
   display: flex
@@ -123,61 +130,6 @@ $white: #fff
   align-items: center
   margin-top: 80px
   position: relative
-
-  .button-group
-    display: flex
-    gap: 20px
-    width: 100%
-    justify-content: center
-    position: relative
-
-    .button-message
-      width: 100%
-      height: 110px
-      text-align: center
-
-      .toast-message
-        display: block
-        color: #008300
-        transition: opacity 0.3s ease
-
-      .edit
-        width: 20.5%
-        padding: 20px 0
-        text-align: center
-        @extend .button-black
-
-        &.btn
-          border-radius: 50px
-          @extend .font-medium
-
-        &:hover
-          @extend .button-back
-
-      .save
-        width: 19.5%
-        padding: 20px 0
-        margin-left: 10px
-        text-align: center
-        @extend .button-black
-
-        &.btn
-          border-radius: 50px
-          @extend .font-medium
-
-        &:hover
-          @extend .button-back
-
-      .save-disabled
-         width: 19.5%
-         padding: 20px 0
-         margin-left: 10px
-         text-align: center
-         @extend .button-disabled
-
-         &.btn
-          border-radius: 50px
-          @extend .font-medium
 
   .back
     width: 20vw

@@ -1,64 +1,55 @@
 import React, { SyntheticEvent, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import addProfile, { IProfile } from '@redux/profile/actionCreators';
+import { addProfile, IProfile } from '@redux/newUser/actionCreators';
 import { ProfileDispatch, RootState } from '@redux/store';
 
 function UserProfile() {
   const dispatch: ProfileDispatch = useDispatch<ProfileDispatch>();
-  const currentProfile = useSelector((state: RootState) => state.profile);
-  const [name, setName] = useState(currentProfile?.name);
-  const [pin, setPin] = useState(currentProfile?.pin);
+  const profileList = useSelector((state: RootState) => state.newUser.users);
+  const selectedProfile = profileList.find((profile) => profile.selected);
+  const [name, setName] = useState(selectedProfile?.name);
+  const [color, setColor] = useState(selectedProfile?.color);
   const [isButtonVisible, setIsButtonVisible] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-  const [successMessage, setSuccessMessage] = useState('');
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const colorFromUrl = queryParams.get('color');
 
   useEffect(() => {
-    if (currentProfile) {
-      setName(currentProfile.name);
-      setPin(currentProfile.pin);
+    if (colorFromUrl) {
+      setColor(colorFromUrl);
     }
-  }, [currentProfile]);
+  }, [colorFromUrl]);
 
   useEffect(() => {
-    setIsButtonVisible(name !== currentProfile?.name || pin !== currentProfile?.pin);
-  }, [name, pin, currentProfile, isButtonVisible]);
+    if (selectedProfile) {
+      setName(selectedProfile.name);
+      setColor(selectedProfile.color);
+    }
+  }, [selectedProfile]);
+
+  useEffect(() => {
+    setIsButtonVisible(name !== selectedProfile?.name || color !== selectedProfile?.color);
+  }, [name, color, selectedProfile, isButtonVisible]);
 
   const handlePinChange = (e: SyntheticEvent) => {
     const { value } = e.target as HTMLInputElement;
-    if (/^\d{0,4}$/.test(value)) {
-      setPin(value);
-    }
+    setColor(value);
   };
 
   const handleSubmit = () => {
     if (isEditing && isButtonVisible) {
       const profile: IProfile = {
+        id: selectedProfile.id,
         name: name || 'Admin',
-        pin,
+        color,
       };
-      if (profile.name && profile.pin.length === 4) {
+      if (profile.name) {
         dispatch(addProfile(profile));
-        setSuccessMessage('Profile saved successfully!');
-        setTimeout(() => {
-          setSuccessMessage('');
-        }, 5000);
       }
     }
     setIsEditing(!isEditing);
-  };
-
-  const handleCancel = () => {
-    setName(currentProfile?.name);
-    setPin(currentProfile?.pin);
-    setIsEditing(false);
-  };
-
-  const buttonClass = () => {
-    if (isEditing) {
-      return pin.length === 4 && isButtonVisible ? 'save btn' : 'save-disabled btn';
-    }
-    return 'edit btn';
   };
 
   return (
@@ -68,61 +59,49 @@ function UserProfile() {
       <div className="form">
         <div className="form-user">
           <span>Name</span>
-          <div className={`change-name ${isEditing ? 'button-change-name btn' : ''}`}>
+          <div className="change-name button-change-name btn">
             <input
-              className="user-input"
+              className="user-input btn"
               placeholder="Admin"
               value={name}
-              onChange={(e) => setName(e.target.value)}
-              disabled={!isEditing}
+              onChange={(e) => {
+                const newName = e.target.value;
+                setName(newName);
+              }}
+              onBlur={() => {
+                if (selectedProfile) {
+                  const updatedProfile: IProfile = {
+                    ...selectedProfile,
+                    name: name.trim() || selectedProfile.name,
+                  };
+                  dispatch(addProfile(updatedProfile));
+                }
+              }}
             />
           </div>
         </div>
         <span className="change-color" />
         <div className="password">
           <span>PIN for profile</span>
-          <div className={`change-pin ${isEditing ? 'button-change-pin btn' : ''}`}>
-            <input
-              className="pin-input"
-              placeholder="0"
-              value={pin}
-              type="text"
-              onChange={handlePinChange}
-              disabled={!isEditing}
-            />
-          </div>
+          <NavLink to="choose-color" className="change-color">
+            <div className="change-color button-change-color btn">
+              <button
+                className="color-input"
+                value={color}
+                onChange={handlePinChange}
+                type="button"
+                onClick={handleSubmit}
+              >
+                Изменить
+              </button>
+            </div>
+          </NavLink>
         </div>
       </div>
       <div className="button-back-profile">
-        <div className="button-group">
-          <div className="button-message">
-            {successMessage && (
-              <span className="toast-message">
-                {successMessage}
-              </span>
-            )}
-            <button
-              onClick={handleSubmit}
-              className={buttonClass()}
-              type="button"
-              disabled={isEditing && (!isButtonVisible || pin.length !== 4)}
-            >
-              {isEditing ? 'Save' : 'Edit'}
-            </button>
-            {isEditing && (
-              <button
-                className="save btn"
-                type="button"
-                onClick={handleCancel}
-              >
-                Cancel
-              </button>
-            )}
-          </div>
-        </div>
-        <Link to="/settings">
+        <NavLink to="/settings">
           <button className="back btn" type="button">Back</button>
-        </Link>
+        </NavLink>
       </div>
     </>
   );
