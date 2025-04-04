@@ -5,6 +5,8 @@ export interface IProfileUserItem {
   name: string;
   color: string;
   selected: boolean;
+  parentalRating: number;
+  isAdmin: boolean;
 }
 
 export interface IProfileUser {
@@ -21,6 +23,10 @@ function Profile({ profile }: IProfileUser) {
         <span className="profile-initial">{profile.name[0].toUpperCase()}</span>
       </div>
       <h1 className="profile-title">{profile.name}</h1>
+      <h1 className="profile-age">
+        {profile.parentalRating}
+        +
+      </h1>
     </div>
   );
 }

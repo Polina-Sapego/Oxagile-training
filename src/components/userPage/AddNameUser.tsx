@@ -13,8 +13,18 @@ function AddNameUser() {
     }
   }, [newUsername]);
 
+  useEffect(() => {
+    const storedName = localStorage.getItem('username');
+    if (storedName) {
+      setUsername(storedName);
+    } else if (newUsername) {
+      setUsername(newUsername);
+    }
+  }, [newUsername]);
+
   const handleNameChange = (e) => {
     setUsername(e.target.value);
+    localStorage.setItem('username', e.target.value);
   };
 
   return (

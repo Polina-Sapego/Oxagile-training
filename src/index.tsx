@@ -9,7 +9,9 @@ const domNode: HTMLElement = document.getElementById('root') as HTMLElement;
 const root = createRoot(domNode);
 
 root.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
 );
