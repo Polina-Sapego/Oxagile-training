@@ -9,6 +9,7 @@ import ParentalControl from '@components/settings/ParentalControl';
 import DeleteProfile from '@components/settings/DeleteProfile';
 import ConfirmDelete from '@components/settings/ConfirmDelete';
 import AddAgeUser from '@components/userPage/AddAgeUser';
+import Index from '@components/search';
 import MainLayout from './layouts/MainLayout';
 import Settings from './components/settings';
 import UserPage from './components/userPage';
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<ForYou />} />
+          <Route path="search" element={<Index />} />
           <Route path="settings" element={<Settings />}>
             <Route path="profile" element={<UserProfile />} />
             <Route path="profile/choose-color" element={<ChooseColorsUser />} />

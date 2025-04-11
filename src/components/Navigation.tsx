@@ -2,6 +2,7 @@ import React from 'react';
 import SettingsDisabled from '@images/settings-disabled.png';
 import Settings from '@images/settings.png';
 import Main from '@images/main.png';
+import Search from '@images/search.png';
 import MainDisabled from '@images/main-disabled.png';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -12,7 +13,9 @@ function Navigation() {
   const selectedProfile = profileList.find((profile) => profile.selected);
 
   const menu = [
+
     { path: '/', imgActive: Main, imgInactive: MainDisabled },
+    { path: 'search', imgActive: Search, imgInactive: Search },
     { path: 'settings', imgActive: Settings, imgInactive: SettingsDisabled },
   ];
 
