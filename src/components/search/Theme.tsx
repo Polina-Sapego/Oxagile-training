@@ -20,10 +20,10 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontSize: 10,
+    fontSize: 18,
     h1: { fontSize: '4rem' },
     h2: { fontSize: '2rem' },
-    body1: { fontSize: '0.7rem' },
+    body1: { fontSize: '0.9rem' },
   },
   components: {
     MuiDivider: {
@@ -36,7 +36,7 @@ const theme = createTheme({
     MuiTextField: {
       styleOverrides: {
         root: {
-          width: '70%',
+          width: '75%',
           '& .MuiOutlinedInput-root': {
             '& fieldset': {
               borderColor: inputBorderColor,

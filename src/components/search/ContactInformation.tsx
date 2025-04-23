@@ -1,7 +1,11 @@
 import React from 'react';
-import { TextField, Select, MenuItem } from '@mui/material';
+import {
+  TextField, Select, MenuItem, InputLabel, FormControl, Divider,
+} from '@mui/material';
+import Grid from '@mui/material/Grid';
+import { Controller } from 'react-hook-form';
 
-function ContactInformation({ register, errors }) {
+function ContactInformation({ register, errors, control }) {
   const countries = [
     { code: 'US', label: 'United States', phone: '1' },
     { code: 'FR', label: 'France', phone: '33' },
@@ -13,10 +17,11 @@ function ContactInformation({ register, errors }) {
   ];
 
   return (
-    <div className="form-block">
+    <>
       <p>ENTER YOUR DETAILS:</p>
-      <div className="form-row">
-        <div className="form-field form-right">
+      <Divider />
+      <Grid container spacing={2}>
+        <Grid size={{ xs: 12, sm: 6 }} sx={{ display: 'flex', justifyContent: { xs: 'center', sm: 'flex-end' }, mt: 2 }}>
           <TextField
             id="name-basic"
             type="text"
@@ -26,8 +31,8 @@ function ContactInformation({ register, errors }) {
             error={!!errors.name}
             helperText={errors.name?.message}
           />
-        </div>
-        <div className="form-field form-left">
+        </Grid>
+        <Grid size={{ xs: 12, sm: 6 }} sx={{ display: 'flex', justifyContent: { xs: 'center', sm: 'flex-start' }, mt: 2 }}>
           <TextField
             id="surname-basic"
             type="text"
@@ -37,10 +42,8 @@ function ContactInformation({ register, errors }) {
             error={!!errors.surname}
             helperText={errors.surname?.message}
           />
-        </div>
-      </div>
-      <div className="form-row">
-        <div className="form-field form-right">
+        </Grid>
+        <Grid size={{ xs: 12, sm: 6 }} sx={{ display: 'flex', justifyContent: { xs: 'center', sm: 'flex-end' } }}>
           <TextField
             id="email-basic"
             type="email"
@@ -56,52 +59,75 @@ function ContactInformation({ register, errors }) {
             error={!!errors.email}
             helperText={errors.email?.message}
           />
-        </div>
-        <div className="form-field form-left">
-          <Select
-            label="Select country..."
-            className="country-width"
-            {...register('countryCode')}
+        </Grid>
+        <Grid
+          size={{ xs: 12, sm: 6 }}
+          sx={{ display: 'flex', justifyContent: { xs: 'center', sm: 'flex-end' } }}
+        >
+          <Grid
+            container
+            spacing={0}
+            sx={{
+              maxWidth: 400, width: '100%', mx: 'auto', mb: 2,
+            }}
           >
-            {countries.map((country) => (
-              <MenuItem key={country.code} value={country.phone}>
-                <img
-                  loading="lazy"
-                  width={20}
-                  height={14}
-                  srcSet={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png 2x`}
-                  src={`https://flagcdn.com/w20/${country.code.toLowerCase()}.png`}
-                  alt={`Flag of ${country.label}`}
-                />
-                {'  '}
-                +
-                {country.phone}
-                {'  '}
-                (
-                {country.label}
-                )
-              </MenuItem>
-            ))}
-          </Select>
-          <TextField
-            id="phoneNumber-basic"
-            variant="outlined"
-            type="tel"
-            label="Phone number"
-            className="datepicker-field"
-            {...register('phoneNumber', {
-              required: 'Phone number is required',
-              pattern: {
-                value: /^[0-9]{9}$/,
-                message: 'Phone number must contain exactly 9 digits',
-              },
-            })}
-            error={!!errors.phoneNumber}
-            helperText={errors.phoneNumber?.message}
-          />
-        </div>
-      </div>
-    </div>
+            <Grid size={{ xs: 5, sm: 3 }}>
+              <Controller
+                name="countryCode"
+                control={control}
+                render={({ field }) => (
+                  <FormControl fullWidth>
+                    <InputLabel>Country</InputLabel>
+                    <Select
+                      label="Country"
+                      value={field.value}
+                      onChange={field.onChange}
+                    >
+                      {countries.map((country) => (
+                        <MenuItem key={country.code} value={country.phone}>
+                          <img
+                            loading="lazy"
+                            src={`https://flagcdn.com/w20/${country.code.toLowerCase()}.png`}
+                            alt={`Flag of ${country.label}`}
+                            style={{ marginRight: 8 }}
+                          />
+                          +
+                          {' '}
+                          {country.phone}
+                          {' '}
+                          (
+                          {' '}
+                          {country.label}
+                          {' '}
+                          )
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                )}
+              />
+            </Grid>
+            <Grid size={{ xs: 7, sm: 8 }}>
+              <TextField
+                id="phoneNumber-basic"
+                variant="outlined"
+                type="tel"
+                label="Phone number"
+                {...register('phoneNumber', {
+                  required: 'Phone number is required',
+                  pattern: {
+                    value: /^[0-9]{9}$/,
+                    message: 'Phone number must contain exactly 9 digits',
+                  },
+                })}
+                error={!!errors.phoneNumber}
+                helperText={errors.phoneNumber?.message}
+              />
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+    </>
   );
 }
 

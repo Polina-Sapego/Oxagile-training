@@ -1,6 +1,28 @@
-.form-position-width
-  width: 70%
+.delete-icon
+  cursor: pointer
+  color: $gray
+  margin-top: -30%
+  font-size: 1.8rem
+  transition: transform 0.3s
 
-.form-data-width
-  display: flex
-  gap: 6px
+.delete-icon:hover
+  cursor: pointer
+  transform: scale(1.3)
+
+.delete-icon:hover
+  color: red
+
+.custom-input
+  position: relative
+  min-width: 72%
+  max-width: 72%
+  min-height: 47px
+  max-height: 47px
+  border: 1px solid $gray
+  font-family: inherit
+  font-size: 0.9rem
+  color: $white
+  background-color: transparent
+
+.custom-input::placeholder
+  color: $gray

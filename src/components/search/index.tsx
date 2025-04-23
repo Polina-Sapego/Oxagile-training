@@ -11,6 +11,7 @@ import { useForm, useFieldArray } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUsersAction, IForm } from '@redux/form/actionCreators';
 import { RootState } from '@redux/store';
+import Grid from '@mui/material/Grid';
 import theme from './Theme';
 import ContactInformation from './ContactInformation';
 import ProfessionalInformation from './ProfessionalInformation';
@@ -21,16 +22,19 @@ function Index() {
     register,
     control,
     handleSubmit,
+    reset,
     watch,
     setValue,
+    getValues,
     formState: { errors },
   } = useForm<IForm>({
     defaultValues: {
       name: '',
       surname: '',
       email: '',
-      countryCode: '',
+      countryCode: '48',
       phoneNumber: '',
+      cv: undefined,
       hasExperience: false,
     },
   });
@@ -48,7 +52,6 @@ function Index() {
 
   const onSubmit = (data: IForm) => {
     const payload = { ...data };
-    delete payload.cv;
 
     const emailExistsNow = forms.some((form) => form.email === data.email);
 
@@ -60,6 +63,18 @@ function Index() {
     }
 
     dispatch(addUsersAction(payload));
+    reset({
+      name: '',
+      surname: '',
+      email: '',
+      countryCode: '48',
+      phoneNumber: '',
+      cv: undefined,
+      linkedin: '',
+      location: '',
+      hasExperience: false,
+      companies: [],
+    });
     setSnackbarMessage('Your data has been saved successfully!');
     setSnackbarSeverity('success');
     setOpenSnackbar(true);
@@ -76,28 +91,46 @@ function Index() {
     setOpenSnackbar(false);
   };
 
+  const getShortFileName = (name) => {
+    if (!name) return '';
+    return name.length > 30 ? `${name.slice(0, 27)}…` : name;
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <div className="form-container">
         <h2 className="form-name">APPLICATION FORM</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <ContactInformation register={register} errors={errors} />
+          <ContactInformation register={register} errors={errors} control={control} />
           <ProfessionalInformation
             register={register}
             fileName={fileName}
+            errors={errors}
+            getShortFileName={getShortFileName}
             handleFileChange={handleFileChange}
           />
-          <div className="form-row form-center">
-            <FormControlLabel
-              control={(
-                <Checkbox
-                  onChange={(e) => setValue('hasExperience', e.target.checked)}
-                  checked={watch('hasExperience')}
-                />
-              )}
-              label="Have you worked in this field before?"
-            />
-          </div>
+          <Grid container spacing={2}>
+            <Grid
+              size={{ xs: 12, sm: 12 }}
+              sx={{ display: 'flex', justifyContent: { xs: 'center', sm: 'center' }, mb: 2 }}
+            >
+              <FormControlLabel
+                control={(
+                  <Checkbox
+                    onChange={(e) => {
+                      const { checked } = e.target;
+                      setValue('hasExperience', checked);
+                      if (checked && fields.length === 0) {
+                        append({});
+                      }
+                    }}
+                    checked={watch('hasExperience')}
+                  />
+                )}
+                label="Have you worked in this field before?"
+              />
+            </Grid>
+          </Grid>
           {hasExperience && (
           <WorkExperience
             register={register}
@@ -106,11 +139,17 @@ function Index() {
             fields={fields}
             append={append}
             remove={remove}
+            getValues={getValues}
           />
           )}
-          <div className="form-row form-center">
-            <Button type="submit" variant="outlined">Apply</Button>
-          </div>
+          <Grid container spacing={2}>
+            <Grid
+              size={{ xs: 12, sm: 12 }}
+              sx={{ display: 'flex', justifyContent: { xs: 'center', sm: 'center' }, mb: 2 }}
+            >
+              <Button type="submit" variant="outlined">Apply</Button>
+            </Grid>
+          </Grid>
         </form>
         <Snackbar
           open={openSnackbar}

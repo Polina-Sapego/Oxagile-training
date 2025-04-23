@@ -1,12 +1,28 @@
-.form-row
+.custom-upload-label
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 64%
+  height: 16px
+  border: 1px solid $gray
+  border-radius: 4px
+  padding: 10px 16px
+  color: $gray
+  cursor: pointer
 
-  .form-location-button
-    position: relative
-    width: 35%
+.upload-wrapper
+  display: flex
+  flex-direction: column
+  align-items: flex-end
 
-.left
+.custom-upload-label:hover
+  color: $white
+  background: $yellow
 
-  .form-button
-    position: relative
-    width: 70%
-    height: 60%
+.custom-file-input
+  display: none
+
+.file-name
+  margin-top: 10px
+  font-size: 0.9rem
+  color: $gray
