@@ -49,6 +49,7 @@ function Index() {
   });
   const forms = useSelector((state: RootState) => state.form.forms);
   const [snackbarSeverity, setSnackbarSeverity] = useState<'success' | 'error'>('success');
+  const flexCenter = { display: 'flex', justifyContent: 'center', mt: 2 };
 
   const onSubmit = (data: IForm) => {
     const payload = { ...data };
@@ -112,7 +113,7 @@ function Index() {
           <Grid container spacing={2}>
             <Grid
               size={{ xs: 12, sm: 12 }}
-              sx={{ display: 'flex', justifyContent: { xs: 'center', sm: 'center' }, mb: 2 }}
+              sx={flexCenter}
             >
               <FormControlLabel
                 control={(
@@ -142,10 +143,10 @@ function Index() {
             getValues={getValues}
           />
           )}
-          <Grid container spacing={2}>
+          <Grid container spacing={2} sx={flexCenter}>
             <Grid
-              size={{ xs: 12, sm: 12 }}
-              sx={{ display: 'flex', justifyContent: { xs: 'center', sm: 'center' }, mb: 2 }}
+              size={{ xs: 12, sm: 6 }}
+              sx={flexCenter}
             >
               <Button type="submit" variant="outlined">Apply</Button>
             </Grid>
