@@ -1,68 +1,27 @@
+.mobile-menu-button
+  position: fixed
+  left: 20px
+
 .navigation
-  position: absolute
-  margin: 0
-  height: 100%
-  width: 9%
-  left: -57px
-  border-radius: 0 100% 100% 0
+  position: fixed
+  top: 8%
+  left: 0
   z-index: 9999
   display: flex
   flex-direction: column
   align-items: center
   gap: 44%
+  width: 9%
+  border-radius: 0 100% 100% 0
+  overflow: visible
 
-  .navigation-setting
+  .navigation-setting,
+  .navigation-profile
     position: relative
-    top: 41%
-    left: 25%
     transition: opacity 0.3s ease
     object-fit: cover
     user-select: none
-    z-index: 9999
 
+  .navigation-setting,
   .navigation-profile
-    position: relative
-    top: -16%
-    left: 25%
-    transition: opacity 0.3s ease
-    object-fit: cover
-
-    .profile-container-navigation
-      display: flex
-      flex-direction: column
-      align-items: center
-      text-align: center
-      user-select: none
-
-      .profile-image-container-navigation
-        position: relative
-
-        .profile-image-navigation
-          width: 42px
-          height: 42px
-          border-radius: 50%
-          user-select: none
-
-          &.green
-            background-image: radial-gradient($gradient-circle, $green-gradient)
-
-          &.orange
-            background-image: radial-gradient($gradient-circle, $orange-gradient)
-
-          &.red
-            background-image: radial-gradient($gradient-circle, $red-gradient)
-
-          &.pink
-            background-image: radial-gradient($gradient-circle, $pink-gradient)
-
-          &.blue
-            background-image: radial-gradient($gradient-circle, $blue-gradient)
-
-        .profile-initial-navigation
-          position: absolute
-          top: 50%
-          left: 50%
-          transform: translate(-50%, -50%)
-          font-size: 1.5rem
-          color: $white
-          font-weight: bold
+    margin-top: 100px
